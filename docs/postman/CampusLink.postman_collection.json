@@ -1,0 +1,42 @@
+{
+  "info": {
+    "name": "CampusLink API",
+    "_postman_id": "b2c25d98-campuslink-phase1",
+    "description": "Postman Collection for CampusLink - AI-Assisted College Placement Platform",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000/api",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "0. Health & Diagnostics",
+      "item": [
+        {
+          "name": "GET Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["health"]
+            },
+            "description": "Verifies that the backend server is online, DB is connected, and checks status of embedding worker & LLM integration."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
+

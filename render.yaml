@@ -1,0 +1,46 @@
+services:
+  - type: web
+    name: campuslink-api
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build --workspace=server
+    startCommand: npm run start --workspace=server
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 1d
+      - key: CORS_ORIGIN
+        sync: false
+      - key: MAX_RESUME_MB
+        value: 5
+      - key: AI_ENABLED
+        value: true
+      - key: LLM_BASE_URL
+        value: https://api.groq.com/openai/v1
+      - key: LLM_MODEL
+        value: llama-3.3-70b-versatile
+      - key: LLM_API_KEY
+        sync: false
+      - key: LLM_TIMEOUT_MS
+        value: 15000
+      - key: LLM_MAX_CONCURRENCY
+        value: 2
+      - key: EMBEDDINGS_ENABLED
+        value: true
+      - key: EMBEDDINGS_MODEL
+        value: Xenova/all-MiniLM-L6-v2
+      - key: EMBEDDINGS_THREADS
+        value: 1
+      - key: PARSE_THREADS
+        value: 2
+      - key: SKILL_MATCH_THRESHOLD
+        value: 0.5
+
